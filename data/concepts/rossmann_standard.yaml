@@ -1,0 +1,148 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Rossmann Standard Concept — validated against VKST 3600 Hamburg Jungfernstieg
+# Manufacturer: MAX FRANKE.led  |  Family: MIKA80-E
+# ─────────────────────────────────────────────────────────────────────────────
+concept_id: "rossmann_standard"
+customer:   "Dirk Rossmann GmbH"
+version:    "2026-01"
+
+grid:
+  pitch_mm:          1250
+  ceiling_height_mm: 3000
+  fries_height_mm:   3300
+
+layer_map:
+  walls:      ["WALLS","A-WALL","WAND","0"]
+  ceiling:    ["CEILING","A-CLNG","DECKE","RASTERDECKE"]
+  grid:       ["GRID","CEILING-GRID","RASTER","DECKENRASTER"]
+  doors:      ["DOORS","A-DOOR","TUR"]
+  windows:    ["WINDOWS","A-GLAZ","FENSTER"]
+  furniture:  ["FURNITURE","A-FURN","EINRICHTUNG"]
+  shelving:   ["SHELVING","REGAL","GONDOLA","BEELINE","SLATWALL"]
+  checkout:   ["CHECKOUT","KASSE","SB","KASSENSTUHL"]
+  luminaires: ["LUMINAIRES","LEUCHTE","BELEUCHTUNG"]
+
+zones:
+  sales_floor:
+    primary_luminaire:
+      product_code:   "MIKA80-E-WS-930-PH-PS7HE+-L22-2400-40RF-DV2.5-EN"
+      description:    "MIKA80-E Downlight 15W 40° 3000K CRI90"
+      manufacturer:   "MAX FRANKE.led"
+      wattage:        15
+      lux_output:     2400
+      mounting_type:  "grid_recessed"
+      cutout_mm:      128
+      embed_depth_mm: 110
+      ip_rating:      "IP20"
+      dimmable:       true
+      cri:            90
+      cct_k:          3000
+      beam_angle_deg: 40
+      tiltable_deg:   35
+      rotatable_deg:  355
+      symbol_color:   "magenta"
+      lumi_type:      "A"
+    perimeter_luminaire:
+      product_code:   "MIKA80-E-WS-930-PH-PS7HE+-L22-3200-60RF-DV2.5-EN"
+      description:    "MIKA80-E Downlight 20W 60° 3000K CRI90"
+      manufacturer:   "MAX FRANKE.led"
+      wattage:        20
+      lux_output:     3200
+      mounting_type:  "grid_recessed"
+      cutout_mm:      128
+      embed_depth_mm: 110
+      ip_rating:      "IP20"
+      dimmable:       true
+      cri:            90
+      cct_k:          3000
+      beam_angle_deg: 60
+      tiltable_deg:   35
+      rotatable_deg:  355
+      symbol_color:   "red"
+      lumi_type:      "B"
+    lux_target:       750
+    spacing_rule:     "shelf_aligned"
+    perimeter_shrink_mm: 1600
+
+  checkout_zone:
+    primary_luminaire:
+      product_code:   "MIKA80-E-WS-930-PH-PS7HE+-L22-2400-40RF-DV2.5-EN"
+      description:    "MIKA80-E Downlight 15W 40° 3000K CRI90"
+      manufacturer:   "MAX FRANKE.led"
+      wattage:        15
+      lux_output:     2400
+      mounting_type:  "grid_recessed"
+      cutout_mm:      128
+      embed_depth_mm: 110
+      ip_rating:      "IP20"
+      dimmable:       true
+      cri:            90
+      cct_k:          3000
+      beam_angle_deg: 40
+      lumi_type:      "A"
+    lux_target:       500
+    spacing_rule:     "grid_aligned"
+
+  storage:
+    primary_luminaire:
+      product_code:   "MIKA80-E-WS-930-PH-PS7HE+-L22-3200-60RF-DV2.5-EN"
+      description:    "MIKA80-E Downlight 20W 60° 3000K CRI90"
+      manufacturer:   "MAX FRANKE.led"
+      wattage:        20
+      lux_output:     3200
+      mounting_type:  "grid_recessed"
+      cutout_mm:      128
+      embed_depth_mm: 110
+      ip_rating:      "IP20"
+      dimmable:       false
+      lumi_type:      "B"
+    lux_target:       200
+    spacing_rule:     "grid_aligned"
+
+  corridor:
+    primary_luminaire:
+      product_code:   "MIKA80-E-WS-930-PH-PS7HE+-L22-2400-40RF-DV2.5-EN"
+      description:    "MIKA80-E Downlight 15W 40° 3000K CRI90"
+      manufacturer:   "MAX FRANKE.led"
+      wattage:        15
+      lux_output:     2400
+      mounting_type:  "grid_recessed"
+      cutout_mm:      128
+      embed_depth_mm: 110
+      ip_rating:      "IP20"
+      dimmable:       true
+      lumi_type:      "A"
+    lux_target:       200
+    spacing_rule:     "centreline"
+
+  entrance:
+    primary_luminaire:
+      product_code:   "MIKA80-E-WS-930-PH-PS7HE+-L22-2400-40RF-DV2.5-EN"
+      description:    "MIKA80-E Downlight 15W 40° 3000K CRI90"
+      manufacturer:   "MAX FRANKE.led"
+      wattage:        15
+      lux_output:     2400
+      mounting_type:  "grid_recessed"
+      cutout_mm:      128
+      embed_depth_mm: 110
+      ip_rating:      "IP44"
+      dimmable:       true
+      lumi_type:      "A"
+    lux_target:       300
+    spacing_rule:     "grid_aligned"
+
+  service_area:
+    primary_luminaire:
+      product_code:   "MIKA80-E-WS-930-PH-PS7HE+-L22-2400-40RF-DV2.5-EN"
+      description:    "MIKA80-E Downlight 15W 40° 3000K CRI90"
+      manufacturer:   "MAX FRANKE.led"
+      wattage:        15
+      lux_output:     2400
+      mounting_type:  "grid_recessed"
+      cutout_mm:      128
+      embed_depth_mm: 110
+      ip_rating:      "IP44"
+      dimmable:       true
+      lumi_type:      "A"
+    lux_target:       300
+    spacing_rule:     "grid_aligned"

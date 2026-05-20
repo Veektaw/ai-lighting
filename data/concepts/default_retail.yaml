@@ -1,0 +1,118 @@
+concept_id: "default_retail"
+customer: "Default"
+version: "1.0.0"
+zones:
+  sales_floor:
+    primary_luminaire:
+      product_code: "LX-400-LED"
+      description: "Recessed LED panel 40W"
+      wattage: 40
+      lux_output: 4000
+      mounting_type: "grid_recessed"
+      length_mm: 600
+      width_mm: 600
+      ip_rating: "IP40"
+      dimmable: true
+    secondary_luminaire:
+      product_code: "LX-200-LED"
+      description: "Recessed LED panel 20W"
+      wattage: 20
+      lux_output: 2000
+      mounting_type: "grid_recessed"
+      length_mm: 600
+      width_mm: 300
+      ip_rating: "IP40"
+      dimmable: true
+    lux_target: 750
+    spacing_rule: "shelf_aligned"
+    rows_from_wall_mm: 300
+
+  checkout_zone:
+    primary_luminaire:
+      product_code: "LX-300-LED"
+      description: "Surface LED strip 30W"
+      wattage: 30
+      lux_output: 3000
+      mounting_type: "surface"
+      length_mm: 1200
+      width_mm: 100
+      ip_rating: "IP40"
+      dimmable: true
+    lux_target: 500
+    spacing_rule: "grid_aligned"
+    rows_from_wall_mm: 300
+
+  entrance:
+    primary_luminaire:
+      product_code: "LX-100-LED"
+      description: "Recessed downlight 10W"
+      wattage: 10
+      lux_output: 1000
+      mounting_type: "grid_recessed"
+      length_mm: 200
+      width_mm: 200
+      ip_rating: "IP44"
+      dimmable: true
+    lux_target: 300
+    spacing_rule: "grid_aligned"
+    rows_from_wall_mm: 400
+
+  storage:
+    primary_luminaire:
+      product_code: "LX-150-LED"
+      description: "Batten LED 15W"
+      wattage: 15
+      lux_output: 1500
+      mounting_type: "surface"
+      length_mm: 1200
+      width_mm: 80
+      ip_rating: "IP40"
+      dimmable: false
+    lux_target: 200
+    spacing_rule: "grid_aligned"
+    rows_from_wall_mm: 200
+
+  corridor:
+    primary_luminaire:
+      product_code: "LX-150-LED"
+      description: "Batten LED 15W"
+      wattage: 15
+      lux_output: 1500
+      mounting_type: "surface"
+      length_mm: 1200
+      width_mm: 80
+      ip_rating: "IP40"
+      dimmable: true
+    lux_target: 200
+    spacing_rule: "perimeter"
+    rows_from_wall_mm: 200
+
+  office:
+    primary_luminaire:
+      product_code: "LX-400-LED"
+      description: "Recessed LED panel 40W"
+      wattage: 40
+      lux_output: 4000
+      mounting_type: "grid_recessed"
+      length_mm: 600
+      width_mm: 600
+      ip_rating: "IP40"
+      dimmable: true
+    lux_target: 500
+    spacing_rule: "grid_aligned"
+    rows_from_wall_mm: 300
+
+  default:
+    primary_luminaire:
+      product_code: "LX-200-LED"
+      description: "Recessed LED panel 20W"
+      wattage: 20
+      lux_output: 2000
+      mounting_type: "grid_recessed"
+      length_mm: 600
+      width_mm: 300
+      ip_rating: "IP40"
+      dimmable: true
+    lux_target: 300
+    spacing_rule: "grid_aligned"
+    rows_from_wall_mm: 300
