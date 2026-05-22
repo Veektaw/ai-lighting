@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  ai-lighting:
+    image: turbham/ai-lighting:latest
+    container_name: ai-lighting
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persistent data storage
+      - ./ai-lighting-data/dwg:/app/data/dwg
+      - ./ai-lighting-data/exports:/app/data/exports
+      - ./ai-lighting-data/annotations:/app/data/annotations
+      - ./ai-lighting-data/models:/app/ml/models
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# Optional: Add a reverse proxy for production
+# networks:
+#   default:
+#     name: ai-lighting-network

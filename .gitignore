@@ -73,6 +73,10 @@ ml/models/*.joblib
 ml/models/*.h5
 *.dwg.bak
 
+# Docker test artifacts
+ai-lighting-data/
+ai-lighting-test/
+
 # Keep directory structure
 !data/exports/.gitkeep
 !data/annotations/.gitkeep

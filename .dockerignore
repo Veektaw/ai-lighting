@@ -1,0 +1,78 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+RENDER_DEPLOY.md
+DEPLOYMENT_CHECKLIST.md
+*.md
+!requirements.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+env/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Node / React (exclude sources, but node_modules will be rebuilt)
+ui/node_modules/
+ui/dist/
+ui/.env
+ui/.env.local
+ui/.env.*.local
+ui/npm-debug.log*
+ui/yarn-debug.log*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project data (these should be volumes or cloud storage)
+data/dwg/*.dwg
+data/exports/*
+data/annotations/*
+ml/models/*.pkl
+ml/models/*.joblib
+ml/models/*.h5
+
+# Keep directory structure markers
+!data/exports/.gitkeep
+!data/annotations/.gitkeep
+!ml/models/.gitkeep
+
+# Deployment files not needed in container
+render.yaml
+.python-version
+runtime.txt
+docker-compose.yml
+build_and_push.sh
+start_server.sh
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

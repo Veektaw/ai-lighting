@@ -37,6 +37,29 @@ npm install
 npm run dev
 ```
 
+## 🐳 Docker Deployment (Production)
+
+**Deploy to your own server in 3 steps:**
+
+```bash
+# 1. Build and push to Docker Hub
+./build_and_push.sh latest
+
+# 2. On your server, pull and run
+./start_server.sh latest
+
+# 3. Access at http://your-server:8000
+```
+
+**Or use Docker Compose:**
+```bash
+docker-compose up -d
+```
+
+📚 **Full documentation:** See [DOCKER_DEPLOYMENT.md](DOCKER_DEPLOYMENT.md) and [DOCKER_QUICK_REF.md](DOCKER_QUICK_REF.md)
+
+🐋 **Docker Hub:** `turbham/ai-lighting`
+
 ---
 
 ## Project structure

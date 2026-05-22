@@ -18,8 +18,9 @@ from typing import Literal, Optional
 import sys
 
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, BackgroundTasks
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
@@ -30,6 +31,12 @@ app = FastAPI(title="lighting-ai", version="1.0.0",
 
 app.add_middleware(CORSMiddleware, allow_origins=["*"],
                    allow_methods=["*"], allow_headers=["*"])
+
+# Mount static files for frontend (if built)
+ROOT = Path(__file__).parent.parent.parent
+STATIC_DIR = ROOT / "ui" / "dist"
+if STATIC_DIR.exists():
+    app.mount("/assets", StaticFiles(directory=str(STATIC_DIR / "assets")), name="assets")
 
 # In-memory job store (swap for Redis in production)
 JOBS: dict[str, dict] = {}
@@ -235,6 +242,32 @@ def submit_corrections(payload: CorrectionPayload):
     out.write_text(json.dumps(existing, indent=2))
     return {"status":"recorded","count":len(payload.corrections),
             "message":"Saved for RL training"}
+
+
+# ── Serve React Frontend (catch-all for client-side routing) ─────────────────
+
+@app.get("/{full_path:path}")
+async def serve_frontend(full_path: str):
+    """
+    Serve the React frontend for all non-API routes.
+    This enables client-side routing to work properly.
+    """
+    # Skip if this is an API route (already handled above)
+    if full_path.startswith("health") or full_path.startswith("concepts") or \
+       full_path.startswith("process") or full_path.startswith("jobs") or \
+       full_path.startswith("exports") or full_path.startswith("corrections") or \
+       full_path.startswith("docs") or full_path.startswith("openapi.json"):
+        raise HTTPException(404, "Not found")
+    
+    # Serve index.html for all other routes (React handles routing)
+    index_file = STATIC_DIR / "index.html"
+    if index_file.exists():
+        return HTMLResponse(content=index_file.read_text(), status_code=200)
+    else:
+        return HTMLResponse(
+            content="<h1>AI Lighting API</h1><p>Frontend not built. API is available at <a href='/docs'>/docs</a></p>",
+            status_code=200
+        )
 
 
 # ── Dev server ────────────────────────────────────────────────────────────────
